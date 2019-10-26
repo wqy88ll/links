@@ -57,7 +57,7 @@ if __name__ == '__main__':
     
     spider=Spider(url=url0,headers=headers,fn='tmp.txt')
     
-    #spider=Spider(url=url1,headers=headers,fn='article_links_new.db')
+    #spider=Spider(url=url1,headers=headers,fn='article_links_new.db') //成品中需要手工查找lgdata并删除与之相关的网址
     #spider=Spider(url=url2,headers=headers,fn='article_links_old.db')
     #spider=Spider(url=url3,headers=headers,fn='video_links_new.db')
     #spider=Spider(url=url4,headers=headers,fn='video_links_old.db')
