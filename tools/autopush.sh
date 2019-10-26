@@ -9,5 +9,5 @@ git remote add mylink git@gitee.com:wqy88/links.git
 git push mylink master
 git remote rm link
 git remote add link git@github.com:wqy88/links.git
-git push link master 
+git push -f link master 
 #read -p "Press [Enter] key to continue."
