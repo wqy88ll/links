@@ -23,17 +23,18 @@ class Spider:
         return re.findall(ex,home_data)
 
     def parse_detail_data(self):
-        detail_url=self.parse_home_data()
-        print(detail_url,flush=True) #即时打印结果
-        '''i = 0
-        urls = ''
-        for url in detail_url:
-            i += 1
-            urls += '{"url":"' + ''.join(url) + '","producer":"旧PC站"},' #组合成特殊格式
-        self.fp.write(urls[:-1])
-        print(i)'''
-        print(len(detail_url))
-        self.fp.write(f'["' + '","'.join(detail_url) + '"]') #构造一个list的文本格式
+        detail_url=self.parse_home_data() 
+        print(len(detail_url),detail_url,flush=True) #即时打印结果
+        if(self.fn == 'article_links_new.db'):
+            urls = ''
+            for url in detail_url:
+                #urls += '{"url":"' + ''.join(url) + '","producer":"旧PC站"},' #组合成特殊格式
+                if(url.find('lgpage')==-1):
+                    urls += '"' + url + '",'
+            links = urls[1:-2]
+        else:
+            links = '","'.join(detail_url)
+        self.fp.write(f'["' + links + '"]') #构造一个list的文本格式
 
     def close_file(self):
         self.fp.close()
@@ -50,14 +51,14 @@ if __name__ == '__main__':
     }
     url0 = 'https://www.xuexi.cn/f997e76a890b0e5a053c57b19f468436/data018d244441062d8916dd472a4c6a0a0b.js' #练习用
     
-    url1 = 'https://www.xuexi.cn/lgdata/35il6fpn0ohq.json' #文章数量，成品中需要手工查找lgdata并删除与之相关的网址
+    url1 = 'https://www.xuexi.cn/lgdata/35il6fpn0ohq.json' #文章数量，自动选出不含有lgpage的网址
     url2 = 'https://www.xuexi.cn/72ac54163d26d6677a80b8e21a776cfa/data9a3668c13f6e303932b5e0e100fc248b.js' #文章时长，成品直接可用
     url3 = 'https://www.xuexi.cn/lgdata/17th9fq5c7l.json' #视频数量，成品直接可用
     url4 = 'https://www.xuexi.cn/a191dbc3067d516c3e2e17e2e08953d6/datab87d700beee2c44826a9202c75d18c85.js' #视频时长，成品直接可用
     
-    spider=Spider(url=url0,headers=headers,fn='tmp.txt')
+    #spider=Spider(url=url0,headers=headers,fn='tmp.txt')
     
-    #spider=Spider(url=url1,headers=headers,fn='article_links_new.db') //成品中需要手工查找lgdata并删除与之相关的网址
+    spider=Spider(url=url1,headers=headers,fn='article_links_new.db') 
     #spider=Spider(url=url2,headers=headers,fn='article_links_old.db')
     #spider=Spider(url=url3,headers=headers,fn='video_links_new.db')
     #spider=Spider(url=url4,headers=headers,fn='video_links_old.db')
