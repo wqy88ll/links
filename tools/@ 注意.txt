@@ -1,0 +1,9 @@
+使用过程：
+1、打开git的主界面。到f:\git双击git-bash.exe即可。
+2、切换到目标目录。如
+cd f:
+cd phptools0/website
+3、运行上传配置文件。
+sh tools/autopush.sh
+4、如果需要强制运行。修改autopush.sh中的上传那行，加上-f即可。
+5、如果需要增加文件。修改autopush.sh中的目录或文件那行即可。
