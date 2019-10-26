@@ -10,7 +10,7 @@ git push mylink master
 git remote rm link
 git remote add link git@github.com:wqy88/links.git
 git push link master 
-git remote rm cdlink
-git remote add cdlink git@e.coding.net:wqy88/links.git
-git push cdlink master 
+#git remote rm cdlink
+#git remote add cdlink git@e.coding.net:wqy88/links.git
+#git push cdlink master 
 #read -p "Press [Enter] key to continue."
