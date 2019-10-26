@@ -1,3 +1,4 @@
 git init
-git remote add mywb https://gitee.com/wqy88/website.git
-git pull mywb master
+git remote rm mylink
+git remote add mylink https://gitee.com/wqy88/links.git
+git pull mylink master
