@@ -25,7 +25,7 @@ class Spider:
     def parse_detail_data(self):
         detail_url=self.parse_home_data() 
         print(len(detail_url),detail_url,flush=True) #即时打印结果
-        if(self.fn == 'article_links_new.db'):
+        if(self.fn == 'article_links_new0.db'): #article_links_new.db
             urls = ''
             for url in detail_url:
                 #urls += '{"url":"' + ''.join(url) + '","producer":"旧PC站"},' #组合成特殊格式
@@ -58,7 +58,7 @@ if __name__ == '__main__':
     
     #spider=Spider(url=url0,headers=headers,fn='tmp.txt')
     
-    spider=Spider(url=url1,headers=headers,fn='article_links_new.db') 
+    spider=Spider(url=url1,headers=headers,fn='article_links_new.db') #注意第28行与之呼应
     #spider=Spider(url=url2,headers=headers,fn='article_links_old.db')
     #spider=Spider(url=url3,headers=headers,fn='video_links_new.db')
     #spider=Spider(url=url4,headers=headers,fn='video_links_old.db')
