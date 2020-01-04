@@ -8,7 +8,7 @@ git remote add mylink git@gitee.com:wqy88/links.git
 #强制更新到远程 git push -f mylink master
 git push mylink master
 git remote rm link
-git remote add link git@github.com:wqy88/links.git
+git remote add link git@github.com:wqy88ll/links.git
 git push link master 
 #git remote rm cdlink
 #git remote add cdlink git@e.coding.net:wqy88/links.git
